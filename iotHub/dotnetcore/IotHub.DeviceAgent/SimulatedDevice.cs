@@ -19,8 +19,8 @@ namespace IotHub.DeviceAgent
 
         public async Task Run()
         {
-            DeviceClient deviceClient = new DeviceClient();//DeviceClient("aodnf");
-            deviceClient.
+            //DeviceClient deviceClient = new DeviceClient();//DeviceClient("aodnf");
+            //deviceClient.
         }
     }
 }
