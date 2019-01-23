@@ -12,6 +12,19 @@ namespace Storage.Framework
     public class BlobStorage : BlobStorageBase, IBlobStorage
     {
         public BlobStorage(IConfiguration configuration) : base(configuration) { }
+
+        public CloudBlobContainer GetContainerAsync(string name)
+        {
+            try
+            {
+                return GetBlobClient().GetContainerReference(name);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public async Task<IEnumerable<string>> ListContainersAsync()
         {
             try

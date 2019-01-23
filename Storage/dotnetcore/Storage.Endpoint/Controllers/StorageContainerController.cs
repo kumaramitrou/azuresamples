@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Storage.Framework;
@@ -23,11 +24,11 @@ namespace Storage.Endpoint.Controllers
         {
             return Ok(await blobStorage.ListContainersAsync());
         }
-        [HttpGet]
+        [HttpGet(Name ="Get")]
         [Route("{name}")]
-        public async Task<IActionResult> GetAsync(string name)
+        public IActionResult GetAsync(string name)
         {
-            return Ok();
+            return Ok(blobStorage.GetContainerAsync(name));
         }
     }
 }
